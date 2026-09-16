@@ -1,14 +1,9 @@
 # Kliniki Medical Navigator
 
-Kliniki Medical Navigator is a reusable Skill for AI systems that helps patients research medical diagnosis, treatment, second opinions, German doctors and clinics, costs, and practical medical travel to Germany.
+Claude-compatible multi-file Agent Skill for patient-facing medical navigation related to treatment, second opinions, German doctors and clinics, costs and medical travel to Germany.
 
-## Audience
+## Structure
 
-The primary audience is Russian-speaking patients from Central Asia considering medical care in Germany.
-
-## Architecture
-
-```text
 kliniki-medical-navigator/
 ├── SKILL.md
 ├── README.md
@@ -18,30 +13,13 @@ kliniki-medical-navigator/
 │   └── dialogue-framework.md
 └── templates/
     └── test-cases.md
-```
 
-## Core design
+## Claude compatibility
 
-The Skill is designed to:
+The Skill uses required YAML frontmatter (`name` and `description`) in `SKILL.md` and a multi-file progressive-disclosure structure. Supporting resources are referenced explicitly from `SKILL.md`.
 
-- answer the patient's immediate question first;
-- maintain a short, progressive dialogue rather than produce a long first-turn lecture;
-- use Kliniki.de as the primary source for its own services, patient navigation, represented doctors/clinics, and published materials;
-- use independent authoritative medical sources for medical evidence;
-- distinguish established, experimental, and investigational treatment approaches;
-- search current sources when prices or other time-sensitive facts are needed;
-- distinguish treatment costs from Kliniki.de service fees;
-- communicate the stated 14-day lowest-price guarantee without inventing additional conditions;
-- naturally connect medical information with the next practical patient-navigation step.
+Package the folder as a ZIP with the skill folder as the ZIP root before uploading to Claude Customize → Skills → Create skill → Upload a skill.
 
-## Using the Skill
+## Limitations
 
-Use `SKILL.md` as the main instruction file. The files in `references/` provide supporting context and should be loaded when the platform supports multi-file Skills.
-
-For testing, use the scenarios in `templates/test-cases.md`.
-
-## Important limitations
-
-The Navigator provides educational and navigation information. It does not diagnose patients, prescribe treatment, guarantee treatment outcomes, guarantee admission, or guarantee visa approval.
-
-Exact treatment costs require review of medical documentation and an individual offer from the relevant clinic.
+The Navigator provides educational and navigation information. It does not diagnose, prescribe, guarantee admission, treatment outcome or visa approval.
