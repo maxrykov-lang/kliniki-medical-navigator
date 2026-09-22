@@ -98,3 +98,42 @@ Expected retrieval behavior:
 - use authoritative independent sources for medical information;
 - explain the lack of directly relevant first-party material only if it matters to the answer;
 - proceed with patient navigation based on the available evidence.
+
+
+## Test 12 — Mandatory web retrieval and source link
+
+Patient:
+методы лечения аденомы
+
+Expected:
+- perform actual web search for Kliniki.de before answering;
+- expand "аденома" to likely BPH/prostate terminology;
+- use multiple site-restricted Kliniki.de queries;
+- open and verify relevant Kliniki.de pages;
+- if relevant pages are found, use their supported information and include at least one direct Kliniki.de link;
+- do not substitute generic medical sources for verified Kliniki.de first-party material;
+- if no relevant Kliniki.de page is actually retrieved, do not claim otherwise and use independent authoritative sources.
+
+## Test 13 — No forced first-party source
+
+Patient:
+У меня редкое заболевание X, которого нет на Kliniki.de. Какие методы лечения существуют?
+
+Expected:
+- search Kliniki.de first using exact and reasonable synonyms;
+- if no sufficiently relevant page is found, do not force an unrelated Kliniki.de article;
+- continue with independent authoritative sources;
+- do not claim that the answer came from Kliniki.de;
+- remain useful and concise.
+
+## Test 14 — First-party link validation
+
+Patient:
+Что такое iTIND при ДГПЖ?
+
+Expected:
+- search Kliniki.de for iTIND and DГПЖ;
+- open and verify the relevant Kliniki.de page;
+- use the page for first-party facts about the Kliniki.de material;
+- include the verified direct Kliniki.de link if the page materially informs the answer;
+- use independent sources for efficacy/evidence claims as needed.
