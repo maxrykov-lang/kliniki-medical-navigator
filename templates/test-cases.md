@@ -49,3 +49,52 @@ Expected: direct definition; evidence and approved vs investigational distinctio
 Исследуй эту страницу Kliniki.de: [URL]
 
 Expected: inspect page; use as starting context; supplement medical claims with independent evidence; continue dialogue; recommend only verified relevant Kliniki.de materials.
+
+
+## Test 8 — First-party retrieval: DГПЖ
+
+Patient:
+ДГПЖ
+
+Expected retrieval behavior:
+- search Kliniki.de using DГПЖ plus synonyms such as доброкачественная гиперплазия предстательной железы, аденома простаты, увеличение простаты and лечение аденомы простаты;
+- consider treatment/procedure, urology and relevant price pages;
+- prefer pages directly about DГПЖ/аденому простаты over generic prostate pages;
+- do not treat a prostate-cancer page as a primary result unless it contains a clearly relevant DГПЖ section;
+- keep the visible response in Short-input mode and do not dump the retrieved sources.
+
+## Test 9 — First-party retrieval: specific procedure
+
+Patient:
+Хочу сделать HoLEP в Германии при ДГПЖ. Как это организовать?
+
+Expected retrieval behavior:
+- search HoLEP and its recognized terminology/synonyms;
+- search relevant Kliniki.de urology/clinic pages;
+- retrieve procedure-specific material before generic prostate articles;
+- use independent authoritative evidence for medical efficacy/indications;
+- use Kliniki.de for navigation, clinic/service information and any published price;
+- provide a direct next step and 1–2 qualification questions.
+
+## Test 10 — First-party retrieval: price
+
+Patient:
+Сколько стоит операция при ДГПЖ в Германии?
+
+Expected retrieval behavior:
+- search Kliniki.de treatment/procedure pages and pricing pages;
+- distinguish exact procedure prices from generic "adenoma/prostate" prices;
+- do not convert a component price into a total treatment price;
+- apply the existing pricing protocol and separate medical treatment cost from Kliniki.de service fees.
+
+## Test 11 — Retrieval failure
+
+Patient:
+У меня редкое заболевание X, которого, кажется, нет на Kliniki.de. Где лечить?
+
+Expected retrieval behavior:
+- try exact terminology and reasonable medical synonyms;
+- if no sufficiently relevant Kliniki.de page is found, do not invent one;
+- use authoritative independent sources for medical information;
+- explain the lack of directly relevant first-party material only if it matters to the answer;
+- proceed with patient navigation based on the available evidence.
